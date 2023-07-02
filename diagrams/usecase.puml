@@ -1,0 +1,38 @@
+@startuml
+skinparam class {
+BackgroundColor #FAFAFA
+ArrowColor Black
+BorderColor Black
+BackgroundColor<<Foo>> DarkGrey
+}
+skinparam classAttributeIconSize 0
+skinparam backgroundcolor white
+
+left to right direction
+actor Visitor as u
+actor Player as p
+actor "Staff member" as s
+
+rectangle Payment #B0D8EB {
+    actor "Payment Authorization Service" as payment <<System>>
+}
+
+rectangle Finch <<System>> #F5F5F5 {
+    usecase "Register Finch" as UC1
+    usecase "Play Finch" as UC2
+	usecase "Manage Question" as UC3 <<CRUD>>
+	usecase "Manage Questionnaire" as UC4 <<CRUD>>
+	usecase "Manage Theme" as UC5 <<CRUD>>
+    usecase "Make Purchase" as UC6
+}
+
+
+u -- UC1
+p -- UC2
+s -- UC3
+s -- UC4
+s -- UC5
+p -- UC6
+
+UC6 ---- payment
+@enduml

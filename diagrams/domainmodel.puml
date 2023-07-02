@@ -1,0 +1,79 @@
+@startuml
+!theme plain
+skinparam style strictuml
+
+class Player {
+  username
+  password
+  balance
+  lifetime_best
+}
+
+class Theme {
+	name
+}
+
+class Questionnaire {
+  purchase_amount
+  validity_period
+}
+
+class Question {
+  title
+}
+
+class Answer {
+
+}
+
+class FinchShop {
+  questionnaires
+}
+
+class StaffMember {
+
+}
+
+class Point {
+  amount_of_points
+  bonus_points
+}
+
+class Time {
+
+}
+
+class Subject {
+  name
+}
+
+class Prompt {
+}
+
+class Multiple_choice_question {
+}
+
+class Choice {
+}
+
+class Open_question {
+}
+
+
+Player "0..*" -- "0..*" Questionnaire : plays with >
+Player "0..*" -- "1" FinchShop : buys at >
+Subject "1" -- "0..*" Questionnaire : has <
+Theme "1" -- "0..*" Subject : contained with >
+Questionnaire "1" -- "10" Question : consists of >
+Questionnaire "0..*" -- "1" FinchShop : stocked in >
+Question "1" -- "0..*" Point : calculates with >
+Questionnaire "1" -- "1" Time : tracked with >
+StaffMember "0..*" -- "0..*" Questionnaire : make changes in >
+StaffMember "0..*" -- "0..*" Question : make changes in >
+StaffMember "0..*" -- "0..*" Theme : make changes in >
+Prompt "0..*" -- "1" Question : answered with <
+Question <|-- Multiple_choice_question
+Multiple_choice_question "1" -- "2..4" Choice : consists of >
+Question <|-- Open_question
+Question "1" -- "1..4" Answer : has >
+@enduml

@@ -1,0 +1,19 @@
+start
+:Player kiest ervoor om Finch te spelen;
+repeat
+:Player vult in welke vragenlijst hij/zij wil gaan spelen;
+repeat while(Player heeft juiste vragenlijst ingevuld) is (nee)
+->ja;
+repeat
+:Systeem toont eerstvolgende vraag;
+if (Player wil stoppen met de quiz) then (ja)
+      stop
+    endif
+:Player beantwoordt de vraag;
+:Systeem valideert het antwoord;
+:Systeem berekent een bepaald aantal punten per vraag;
+repeat while(Player heeft tien vragen beantwoord) is (nee)
+->ja;
+:Systeem berekent alle punten bij elkaar op basis van alle goed beantwoorde vragen en tijd;
+:Systeem verwerkt het aantal punten en geeft dit aan de player;
+stop

@@ -1,0 +1,15 @@
+start
+:Player wil iets gaan kopen in de Finch-shop;
+:Systeem toont een lijst van alle producten;
+repeat
+if () then
+:Player geeft aan welke producten hij/zij wil kopen;
+else
+:Player wil extra munten kopen;
+endif
+repeat while(Player wil nog extra munten/producten kopen) is (ja)
+->nee;
+:Player rekent alles af;
+:Systeem brengt het aankoopbedrag van de aangeschafte producten in mindering op het saldo van de player;
+:Systeem levert de producten of extra munten aan de player;
+stop
